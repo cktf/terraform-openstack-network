@@ -6,7 +6,5 @@ branches:
 plugins:
     - "@semantic-release/commit-analyzer"
     - "@semantic-release/release-notes-generator"
-    - - "@semantic-release/changelog"
-      - changelogFile: version/CHANGELOG
     - - "@semantic-release/exec"
-      - prepareCmd: echo "${nextRelease.version}" > version/VERSION
+      - generateNotesCmd: echo "${nextRelease.version}" > version/VERSION && echo "${nextRelease.notes}" > version/CHANGELOG

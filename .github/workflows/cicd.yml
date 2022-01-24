@@ -4,7 +4,7 @@ on:
     push:
         branches:
             - "+([0-9])?(.{+([0-9]),x}).x"
-            - master
+            - main
             - next
     pull_request:
         branches:

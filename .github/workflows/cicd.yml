@@ -22,7 +22,7 @@ jobs:
                   key: version_${{ github.sha }}
 
             - run: npm i -g semantic-release @semantic-release/exec @semantic-release/changelog
-            - run: cp .github/.releaserc.yml .
+            - run: mkdir -p version && cp .github/.releaserc.yml .
             - run: npx semantic-release
 
     build:

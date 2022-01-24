@@ -23,7 +23,7 @@ jobs:
 
             - run: npm i -g semantic-release @semantic-release/exec @semantic-release/changelog
             - run: cp .github/.releaserc.yml .
-            - run: npx semantic-release
+            - run: npx semantic-release -d
 
     build:
         needs: version

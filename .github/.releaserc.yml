@@ -9,4 +9,4 @@ plugins:
     - - "@semantic-release/changelog"
       - changelogFile: version/CHANGELOG
     - - "@semantic-release/exec"
-      - publishCmd: echo "${nextRelease.version}" > version/VERSION
+      - prepareCmd: echo "${nextRelease.version}" > version/VERSION

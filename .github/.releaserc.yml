@@ -1,0 +1,12 @@
+tagFormat: "${version}"
+branches:
+    - "+([0-9])?(.{+([0-9]),x}).x"
+    - { name: "master", prerelease: false }
+    - { name: "next", prerelease: true, channel: "next" }
+plugins:
+    - "@semantic-release/commit-analyzer"
+    - "@semantic-release/release-notes-generator"
+    - - "@semantic-release/changelog"
+      - changelogFile: version/CHANGELOG
+    - - "@semantic-release/exec"
+      - publishCmd: cat "${nextRelease.version}" > version/VERSION

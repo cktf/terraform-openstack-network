@@ -14,7 +14,7 @@ terraform init
 
 ```hcl
 module "network" {
-  source = "terraform-modules-openstack/network"
+  source = "terraform-modules-openstack/network/openstack"
   providers = {
     openstack = openstack
   }

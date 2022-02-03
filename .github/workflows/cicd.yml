@@ -84,9 +84,11 @@ jobs:
                   path: dist/
                   key: ${{ github.sha }}
 
+            - run: echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
             - run: git tag $(cat VERSION)
             - run: git push --tag
             - uses: softprops/action-gh-release@v1
               with:
-                  body_path: version/CHANGELOG
+                  tag_name: ${{ env.VERSION }}
+                  body_path: CHANGELOG
                   files: dist/**

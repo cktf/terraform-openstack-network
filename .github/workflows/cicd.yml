@@ -28,6 +28,7 @@ jobs:
             - run: npm i -g semantic-release @semantic-release/exec
             - run: cp .github/.releaserc.yml .
             - run: npx semantic-release
+            - run: cp .env.example .env
 
     build:
         needs: version

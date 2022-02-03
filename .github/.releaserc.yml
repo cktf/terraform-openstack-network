@@ -8,6 +8,6 @@ plugins:
     - "@semantic-release/commit-analyzer"
     - "@semantic-release/release-notes-generator"
     - - "@semantic-release/exec"
-      - generateNotesCmd: printf %s ${btoa(nextRelease.version)} | base64 -d > VERSION
+      - generateNotesCmd: printf %s ${Buffer.from(nextRelease.version).toString('base64')} | base64 -d > VERSION
     - - "@semantic-release/exec"
-      - generateNotesCmd: printf %s ${btoa(nextRelease.notes)} | base64 -d > CHANGELOG
+      - generateNotesCmd: printf %s ${Buffer.from(nextRelease.notes).toString('base64')} | base64 -d > CHANGELOG

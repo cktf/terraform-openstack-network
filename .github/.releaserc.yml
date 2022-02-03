@@ -8,6 +8,8 @@ plugins:
     - "@semantic-release/commit-analyzer"
     - "@semantic-release/release-notes-generator"
     - - "@semantic-release/exec"
-      - generateNotesCmd: printf %s ${Buffer.from(nextRelease.version).toString('base64')} | base64 -d > VERSION
+      - generateNotesCmd: printf %s ${nextRelease.version} > VERSION
+    - - "@semantic-release/exec"
+      - generateNotesCmd: printf %s ${!nextRelease.channel} > CHANNEL
     - - "@semantic-release/exec"
       - generateNotesCmd: printf %s ${Buffer.from(nextRelease.notes).toString('base64')} | base64 -d > CHANGELOG

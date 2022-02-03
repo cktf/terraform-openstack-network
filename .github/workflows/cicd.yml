@@ -19,7 +19,7 @@ jobs:
             - uses: actions/checkout@v2
             - uses: actions/cache@v2
               with:
-                  path: ".env\nVERSION\nCHANGELOG"
+                  path: ".env\nVERSION\nCHANNEL\nCHANGELOG"
                   key: version_${{ github.sha }}
             - uses: actions/setup-node@v2
               with:
@@ -40,7 +40,7 @@ jobs:
                   key: ${{ hashFiles('.terraform.lock.hcl') }}
             - uses: actions/cache@v2
               with:
-                  path: ".env\nVERSION\nCHANGELOG"
+                  path: ".env\nVERSION\nCHANNEL\nCHANGELOG"
                   key: version_${{ github.sha }}
             - uses: actions/cache@v2
               with:
@@ -77,7 +77,7 @@ jobs:
             - uses: actions/checkout@v2
             - uses: actions/cache@v2
               with:
-                  path: ".env\nVERSION\nCHANGELOG"
+                  path: ".env\nVERSION\nCHANNEL\nCHANGELOG"
                   key: version_${{ github.sha }}
             - uses: actions/cache@v2
               with:
@@ -85,10 +85,12 @@ jobs:
                   key: ${{ github.sha }}
 
             - run: echo "VERSION=$(cat VERSION)" >> $GITHUB_ENV
+            - run: echo "CHANNEL=$(cat CHANNEL)" >> $GITHUB_ENV
             - run: git tag $(cat VERSION)
             - run: git push --tag
             - uses: softprops/action-gh-release@v1
               with:
                   tag_name: ${{ env.VERSION }}
+                  prerelease: ${{ env.CHANNEL }}
                   body_path: CHANGELOG
                   files: dist/**

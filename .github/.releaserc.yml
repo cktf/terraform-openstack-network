@@ -10,6 +10,6 @@ plugins:
     - - "@semantic-release/exec"
       - generateNotesCmd: printf %s ${nextRelease.version} > VERSION
     - - "@semantic-release/exec"
-      - generateNotesCmd: printf %s ${!nextRelease.channel} > CHANNEL
+      - generateNotesCmd: printf %s ${nextRelease.channel || 'latest'} > CHANNEL
     - - "@semantic-release/exec"
       - generateNotesCmd: printf %s ${Buffer.from(nextRelease.notes).toString('base64')} | base64 -d > CHANGELOG

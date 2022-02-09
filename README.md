@@ -1,6 +1,6 @@
 # Terraform OpenStack network module
 
-**network** is a Terraform project defining the required resources for creating a `network`, `subnet`, `router` in openstack
+**network** is a Terraform module defining the required resources for creating a `network`, `subnet`, `router` in openstack
 
 ## Installation
 
@@ -14,10 +14,7 @@ terraform init
 
 ```hcl
 module "network" {
-  source = "terraform-modules-openstack/network/openstack"
-  providers = {
-    openstack = openstack
-  }
+  source = "cktf/network/openstack"
 
   name        = "platform"
   description = "Platform Network"

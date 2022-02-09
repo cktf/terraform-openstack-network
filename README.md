@@ -16,8 +16,8 @@ terraform init
 module "network" {
   source = "cktf/network/openstack"
 
-  name        = "platform"
-  description = "Platform Network"
+  name        = "mynet"
+  description = "My Network"
   external    = "external"
   subnets     = ["192.168.1.0/24", "192.168.2.0/24"]
   tenant_id   = data.openstack_identity_project_v3.this.id

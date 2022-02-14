@@ -1,6 +1,6 @@
 # Terraform OpenStack Network
 
-**network** is a Terraform module defining the required resources for creating a `network`, `subnet`, `router` in `openstack`
+**Network** is a Terraform module useful for creating **network**, **subnet**, **router** resources on **OpenStack**
 
 ## Installation
 
@@ -32,4 +32,4 @@ Please make sure to update tests as appropriate.
 
 ## License
 
-[MIT]()
+[MIT](mit)
